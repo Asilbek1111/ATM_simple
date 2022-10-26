@@ -40,7 +40,7 @@ yes.addEventListener("click", () => {
       infos.push({
         time: new Date().toLocaleString(),
         out: myInput.value,
-        overall: myInput.value,
+        overall: -myInput.value,
       });
       setT();
     }, 1800);
