@@ -32,6 +32,7 @@ back.addEventListener("click", () => {
 yes.addEventListener("click", () => {
   if (myInput.value > 0) {
     loading.style.display = "block";
+    loading.innerHTML = "Depositing...";
     setTimeout(() => {
       alertbtn.style.display = "block";
       loading.style.display = "none";
@@ -44,6 +45,9 @@ yes.addEventListener("click", () => {
     }, 1800);
   } else if (myInput.value.length === 0) {
     loading.style.display = "block";
-    loading.textContent = "Please enter valid amount";
+    loading.innerHTML = "Please enter valid amount";
+    setTimeout(() => {
+      loading.textContent = "";
+    }, 3000);
   }
 });

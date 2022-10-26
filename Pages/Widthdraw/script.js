@@ -31,8 +31,9 @@ back.addEventListener("click", () => {
 
 //Transfer amount
 yes.addEventListener("click", () => {
-  if (myInput.value.length > 1) {
+  if (myInput.value > 0) {
     loading.style.display = "block";
+    loading.innerHTML = "Widthdrawing...";
     setTimeout(() => {
       alertbtn.style.display = "block";
       loading.style.display = "none";
@@ -45,6 +46,9 @@ yes.addEventListener("click", () => {
     }, 1800);
   } else if (myInput.value.length === 0) {
     loading.style.display = "block";
-    loading.textContent = "Please enter valid amount";
+    loading.innerHTML = "Please enter valid amount";
+    setTimeout(() => {
+      loading.textContent = "";
+    }, 3000);
   }
 });
