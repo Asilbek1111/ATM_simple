@@ -42,5 +42,8 @@ yes.addEventListener("click", () => {
       });
       setT();
     }, 1800);
+  } else if (myInput.value.length === 0) {
+    loading.style.display = "block";
+    loading.textContent = "Please enter valid amount";
   }
 });

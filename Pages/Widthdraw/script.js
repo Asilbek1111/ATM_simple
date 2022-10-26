@@ -46,7 +46,5 @@ yes.addEventListener("click", () => {
   } else if (myInput.value.length === 0) {
     loading.style.display = "block";
     loading.textContent = "Please enter valid amount";
-    alertbtn.style.display = "block";
-    alertbtn.textContent = "Operation not completed";
   }
 });
