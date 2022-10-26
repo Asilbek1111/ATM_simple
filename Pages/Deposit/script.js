@@ -8,29 +8,42 @@ var alertbtn = document.querySelector(".alert");
 alertbtn.style.display = "none";
 loading.style.display = "none";
 
+//Delete button
 document.querySelector(".delete").addEventListener("click", function () {
   myInput.value = myInput.value.substring(0, myInput.value.length - 1);
 });
 
+//Get item localstorage
 var infos = JSON.parse(localStorage.getItem("infos"))
   ? JSON.parse(localStorage.getItem("infos"))
   : [];
 
+//Set item localstorage
 function setT() {
   localStorage.setItem("infos", JSON.stringify(infos));
 }
 
+//Backslash
 back.addEventListener("click", () => {
   window.location = "../Main/main.html";
 });
 
+//Transfer amount
 yes.addEventListener("click", () => {
-  loading.style.display = "block";
-  setTimeout(() => {
-    alertbtn.style.display = "block";
-    loading.style.display = "none";
-    infos.push({ time: new Date().toLocaleString(), in: myInput.value });
-
-    setT();
-  }, 1800);
+  if (myInput.value > 0) {
+    loading.style.display = "block";
+    setTimeout(() => {
+      alertbtn.style.display = "block";
+      loading.style.display = "none";
+      infos.push({
+        time: new Date().toLocaleString(),
+        in: myInput.value,
+        overall: myInput.value,
+      });
+      setT();
+    }, 1800);
+  } else if (myInput.value === 0 || myInput.value < 0) {
+    loading.style.display = "block";
+    loading.textContent = "Please enter valid amount";
+  }
 });
